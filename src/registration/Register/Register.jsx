@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
@@ -6,7 +6,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 const Register = () => {
 
     const { createUser } = useContext(AuthContext);
-    console.log(createUser)
+    const [error, setError] = useState(null)
 
     const handleRegister = event => {
         event.preventDefault();
@@ -15,17 +15,18 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
-        console.log(name, email, password, photo);
 
         createUser(email, password)
-        .then((result) => {
-          const user = result.user;
-          console.log(user)
-          form.reset();
-        })
-        .catch((error) => {
-          console.log(error)
-        });
+            .then((result) => {
+                const user = result.user;
+                form.reset();
+                setError();
+            })
+            .catch((error) => {
+                if (password.length < 6) {
+                    setError('password must need 6 carecter')
+                }
+            });
     }
     return (
         <Container>
@@ -53,9 +54,9 @@ const Register = () => {
                 <Button variant="primary" type="submit" className='w-100'>
                     Submit
                 </Button>
-                {/* <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                </Form.Text> */}
+                <Form.Text className="text-danger">
+                    {error}
+                </Form.Text>
                 <p className='mt-3'>Already have an account? <Link to='/login'>Login</Link></p>
             </Form>
         </Container>

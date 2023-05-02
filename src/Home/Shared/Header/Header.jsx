@@ -11,10 +11,10 @@ const Header = () => {
 
     const handleLogOut = () => {
         logOut()
-        .then()
-        .catch(error => {
-            console.log(error)
-        })
+            .then()
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     return (
@@ -32,6 +32,12 @@ const Header = () => {
                         <Link className='text-decoration-none text-dark font-weight-normal me-5' to='/contact'>Contact</Link>
                     </Nav>
                     <Nav>
+                        <div className='me-4'>
+                            {
+                                user &&
+                                <img className='rounded-circle' style={{ width: '40px' }} src={user?.photoURL} alt="" />
+                            }
+                        </div>
                         {
                             user ?
                                 <button onClick={handleLogOut} className='btn btn-primary '>
@@ -41,7 +47,7 @@ const Header = () => {
                                     <Link className='text-decoration-none text-light font-weight-normal' to='/login'>Login</Link>
                                 </button>
                         }
-                        <img src={user} alt="" />
+
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
