@@ -14,12 +14,14 @@ const Header = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto">
                         <Link className='text-decoration-none text-dark font-weight-normal me-5' to='/'>Home</Link>
-                        <Link className='text-decoration-none text-dark font-weight-normal me-5' to='/category'>Category</Link>
+                        <Link className='text-decoration-none text-dark font-weight-normal me-5' to='/category'>Blog</Link>
                         <Link className='text-decoration-none text-dark font-weight-normal me-5' to='/recipe'>Recipe</Link>
                         <Link className='text-decoration-none text-dark font-weight-normal me-5' to='/contact'>Contact</Link>
                     </Nav>
                     <Nav>
-                        <button className='btn btn-primary'>Login</button>
+                        <button className='btn btn-primary '>
+                            <Link className='text-decoration-none text-light font-weight-normal' to='/login'>Login</Link>
+                        </button>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
