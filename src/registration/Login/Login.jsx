@@ -2,10 +2,13 @@ import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import google from '../../assets/google.webp';
+import github from '../../assets/github.png';
+
 
 const Login = () => {
 
-    const {loginUser} = useContext(AuthContext)
+    const { loginUser, googleSignIn } = useContext(AuthContext)
 
     const handleLogin = event => {
         event.preventDefault();
@@ -15,16 +18,19 @@ const Login = () => {
         console.log(email, password)
 
         loginUser(email, password)
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser)
-            form.reset();
-        })
-        .catch(error => {
-            console.log(error)
-        })
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+                form.reset();
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
+    const handleGoogleSignIn = () => {
+        googleSignIn();
+    }
 
     return (
         <Container>
@@ -46,7 +52,13 @@ const Login = () => {
                     Login
                 </Button>
                 <p className='mt-3'>You don't have account? <Link to='/register'>Please Register</Link></p>
+                <div className='text-center'>
+                    {/* <span className='text-danger'><FaGoogle /></span> */}
+                    <Link><img onClick={handleGoogleSignIn} className='me-3' style={{width: '50px'}} src={google} alt="" /></Link>
+                    <Link><img className='me-3' style={{width: '25px'}} src={github} alt="" /></Link>
+                </div>
             </Form>
+
         </Container>
     );
 };
