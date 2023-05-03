@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ChefCard = ({ data }) => {
-    const { chefImage, chefName, yearsOfExperience, numberOfRecipes, likes } = data;
+    const {id, chefImage, chefName, yearsOfExperience, numberOfRecipes, likes } = data;
     return (
         <Col>
             <Card>
@@ -15,7 +16,7 @@ const ChefCard = ({ data }) => {
                     <p className='m-0'><span style={{fontWeight: 'bold'}}>Likes:</span> {likes}</p>
                     </Card.Text>
                     <Button variant="primary" className='w-100'>
-                        Details
+                        <Link className='text-light text-decoration-none' to={`/details/${id}`}>View Recipes</Link>
                     </Button>
                 </Card.Body>
             </Card>

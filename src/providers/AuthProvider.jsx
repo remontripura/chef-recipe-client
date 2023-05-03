@@ -11,7 +11,6 @@ const githubProvider = new GithubAuthProvider();
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
-    console.log(user)
 
     // register data from form
     const createUser = (email, password) => {
