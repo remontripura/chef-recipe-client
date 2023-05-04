@@ -1,24 +1,54 @@
-import React from 'react';
-import { Button, Card } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Card, Col, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
+import { FaRegHeart } from 'react-icons/fa';
 
 const CartDetails = () => {
     const data = useLoaderData();
-    console.log(data)
-    const { chefName, chefImage, description, likes, numberOfRecipes, yearsOfExperience } = data;
+    const { chefName, chefImage, description, likes, numberOfRecipes, yearsOfExperience, recipe } = data;
+    const [disabled, setDisabled] = useState(false);
+
+    const onClick = () => {
+        setDisabled(true);
+    };
+
     return (
-        <Card className='w-50 mx-auto'>
-            <Card.Img variant="top" src={chefImage} />
-            <Card.Body>
-                <Card.Title>Chef Name: {chefName}</Card.Title>
-                <Card.Text>
-                    <p className='m-0'><span style={{ fontWeight: 'bold' }}>Experience:</span> {yearsOfExperience}</p>
-                    <p className='my-2'><span style={{ fontWeight: 'bold' }}>Recipe:</span> {numberOfRecipes}</p>
-                    <p className='m-0'><span style={{ fontWeight: 'bold' }}>Likes:</span> {likes}</p>
-                </Card.Text>
-            </Card.Body>
-        </Card>
+        <div>
+            <Card className='w-50 sm={w-100} mx-auto'>
+                <Card.Img variant="top" src={chefImage} />
+                <Card.Body>
+                    <Card.Title>Chef Name: {chefName}</Card.Title>
+                    <Card.Text>
+                        <p className='m-0'><span style={{ fontWeight: 'bold' }}>bio:</span> {description}</p>
+                        <p className='m-0'><span style={{ fontWeight: 'bold' }}>Experience:</span> {yearsOfExperience}</p>
+                        <p className='my-2'><span style={{ fontWeight: 'bold' }}>Recipe:</span> {numberOfRecipes}</p>
+                        <p className='m-0'><span style={{ fontWeight: 'bold' }}>Likes:</span> {likes}</p>
+                    </Card.Text>
+                </Card.Body>
+            </Card>
+            <div className='mt-5'>
+                <h2 className='text-danger text-center my-5 border-bottom'>{chefName} Recipe</h2>
+                <Row xs={1} md={3} lg={3} className="g-4">
+                    {
+                        recipe.map(r =>
+                            <Col>
+                                <Card style={{ height: '500px' }}>
+                                    <Card.Body>
+                                        <Card.Title className='text-danger'>{r.recipe_name}</Card.Title>
+                                        <p><span style={{ fontWeight: 'bold' }}>Ingredients: </span>{r.ingredients}</p>
+                                        <p><span style={{ fontWeight: 'bold' }}>Cooking Method:</span>{r.cooking_method}</p>
+                                        <p>{r.ratings}</p>
+                                        <button disabled={disabled} onClick={onClick} className='btn btn-primary position-absolute bottom-0 start-0 w-100'>Fabourite Recipe <FaRegHeart /></button>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        )
+                    }
+                </Row>
+            </div>
+        </div>
     );
 };
 
 export default CartDetails;
+

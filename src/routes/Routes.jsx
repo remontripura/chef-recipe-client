@@ -6,11 +6,13 @@ import Login from "../registration/Login/Login";
 import Register from "../registration/Register/Register";
 import DetailsLayout from "../layouts/DetailsLayout";
 import CartDetails from "../CartDetails/CartDetails";
+import Error from "../Home/Shared/Error/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: '/',
@@ -22,6 +24,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <LoginLayout></LoginLayout>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: 'login',
@@ -36,6 +39,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <DetailsLayout></DetailsLayout>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: '/details/:id',
