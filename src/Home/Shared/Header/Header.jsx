@@ -7,7 +7,7 @@ import { AuthContext } from '../../../providers/AuthProvider';
 
 const Header = () => {
 
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, namePhoto } = useContext(AuthContext);
 
     const handleLogOut = () => {
         logOut()
@@ -27,7 +27,7 @@ const Header = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto">
                         <Link className='text-decoration-none text-dark font-weight-normal me-5' to='/'>Home</Link>
-                        <Link className='text-decoration-none text-dark font-weight-normal me-5' to='/category'>Blog</Link>
+                        <Link className='text-decoration-none text-dark font-weight-normal me-5' to='/blog'>Blog</Link>
                         <Link className='text-decoration-none text-dark font-weight-normal me-5' to='/recipe'>Recipe</Link>
                         <Link className='text-decoration-none text-dark font-weight-normal me-5' to='/contact'>Contact</Link>
                     </Nav>

@@ -8,6 +8,7 @@ import DetailsLayout from "../layouts/DetailsLayout";
 import CartDetails from "../CartDetails/CartDetails";
 import Error from "../Home/Shared/Error/Error";
 import PrivateRoute from "./PrivateRoute";
+import Blog from "../Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home></Home>,
         loader: () => fetch('https://chef-recipe-server-remontripura.vercel.app/chefdata')
+      },
+      {
+        path: 'blog',
+        element: <Blog></Blog>
       }
     ]
   },
