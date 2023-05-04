@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../providers/AuthProvider';
 
 const ChefCard = ({ data }) => {
     const { id, chefImage, chefName, yearsOfExperience, numberOfRecipes, likes } = data;

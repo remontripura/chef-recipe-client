@@ -8,57 +8,10 @@ const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
-
-
-
-
-
-
-
-
-
 const AuthProvider = ({ children }) => {
-
-   
-
-
-
-
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
-
-
-
-
-    const users = auth.currentUser;
-
-    if (users !== null) {
-        const displayName = user.displayName;
-        const email = user.email;
-        const photoURL = user.photoURL;
-        console.log(displayName, email, photoURL)
-      }
-
-    //   if (user !== null) {
-    //     user.providerData.forEach((profile) => {
-    //       console.log("Sign-in provider: " + profile.providerId);
-    //       console.log("  Provider-specific UID: " + profile.uid);
-    //       console.log("  Name: " + profile.displayName);
-    //       console.log("  Email: " + profile.email);
-    //       console.log("  Photo URL: " + profile.photoURL);
-    //     });
-    //   }
-
-
-
-
-
-
-
-
-
-
 
     // register data from form
     const createUser = (email, password, name, photo) => {
@@ -67,14 +20,11 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
-
-
     // login data from form
     const loginUser = (email, password) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password);
     }
-
 
     // login with google account
    const googleSignIn = () => {
@@ -88,7 +38,6 @@ const AuthProvider = ({ children }) => {
         console.log(error)
     })
    }
-
 
    // login with github accoutn
    const githubSignIn = () => {
@@ -108,7 +57,6 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return signOut(auth)
     }
-
 
     // observe auth state change
     useEffect(() => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from './Banner';
-import { CardGroup, Col, Container, Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import ChefCard from './ChefCard';
 import { useLoaderData } from 'react-router-dom';
 import XtraSection from './XtraSection';

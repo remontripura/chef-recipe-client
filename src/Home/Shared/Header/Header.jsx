@@ -1,13 +1,11 @@
 import React, { useContext } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import logo from '../../../assets/logo.png'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
-
 const Header = () => {
 
-    const { user, logOut, namePhoto } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
     const handleLogOut = () => {
         logOut()
@@ -21,7 +19,7 @@ const Header = () => {
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
                 <Navbar.Brand href="#home">
-                    <img style={{ width: '50px' }} src={logo} alt="" />
+                    <img style={{ width: '50px' }} src="https://i.ibb.co/7RbjRGL/logo.png" alt="" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
