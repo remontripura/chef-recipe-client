@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
-import { FaRegHeart } from 'react-icons/fa';
-import { key } from 'localforage';
+import { FaRegHeart, FaStar, FaStarHalf } from 'react-icons/fa';
+
 
 const CartDetails = () => {
     const data = useLoaderData();
@@ -38,7 +38,13 @@ const CartDetails = () => {
                                         <Card.Title className='text-danger'>{r.recipe_name}</Card.Title>
                                         <p><span style={{ fontWeight: 'bold' }}>Ingredients: </span>{r.ingredients}</p>
                                         <p><span style={{ fontWeight: 'bold' }}>Cooking Method:</span>{r.cooking_method}</p>
-                                        <p>{r.ratings}</p>
+                                        <span className='d-flex align-items-center'>
+                                            <FaStar className='text-warning'/>
+                                            <FaStar className='text-warning' />
+                                            <FaStar className='text-warning' />
+                                            <FaStar className='text-warning' />
+                                            <FaStarHalf className='text-warning' />
+                                        {r?.ratings}</span>
                                         <button disabled={disabled} onClick={onClick} className='btn btn-primary position-absolute bottom-0 start-0 w-100'>Fabourite Recipe <FaRegHeart /></button>
                                     </Card.Body>
                                 </Card>
