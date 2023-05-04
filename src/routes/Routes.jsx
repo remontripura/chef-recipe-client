@@ -7,6 +7,7 @@ import Register from "../registration/Register/Register";
 import DetailsLayout from "../layouts/DetailsLayout";
 import CartDetails from "../CartDetails/CartDetails";
 import Error from "../Home/Shared/Error/Error";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/chefdata')
+        loader: () => fetch('https://chef-recipe-server-remontripura.vercel.app/chefdata')
       }
     ]
   },
@@ -43,8 +44,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/details/:id',
-        element: <CartDetails></CartDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/chefdata/${params.id}`)
+        element: <PrivateRoute><CartDetails></CartDetails></PrivateRoute>,
+        loader: ({params}) => fetch(`https://chef-recipe-server-remontripura.vercel.app/chefdata/${params.id}`)
 
       }
     ]

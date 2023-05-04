@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import { FaRegHeart } from 'react-icons/fa';
+import { key } from 'localforage';
 
 const CartDetails = () => {
     const data = useLoaderData();
