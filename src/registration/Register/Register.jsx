@@ -33,22 +33,22 @@ const Register = () => {
             <Form onSubmit={handleRegister} className='w-50 mx-auto'>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" name='name' placeholder="Type Your Name" />
+                    <Form.Control type="text" name='name' placeholder="Type Your Name" required/>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name='email' placeholder="Type Your Email" />
+                    <Form.Control type="email" name='email' placeholder="Type Your Email" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name='password' placeholder="Password" />
+                    <Form.Control type="password" name='password' placeholder="Password" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Photo URL</Form.Label>
-                    <Form.Control type="text" name='photo' placeholder="Photo URL" />
+                    <Form.Control type="text" name='photo' placeholder="Photo URL" required />
                 </Form.Group>
 
                 <Button variant="primary" type="submit" className='w-100'>

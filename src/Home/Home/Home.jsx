@@ -3,6 +3,7 @@ import Banner from './Banner';
 import { CardGroup, Col, Container, Row } from 'react-bootstrap';
 import ChefCard from './ChefCard';
 import { useLoaderData } from 'react-router-dom';
+import XtraSection from './XtraSection';
 
 
 const Home = () => {
@@ -25,6 +26,9 @@ const Home = () => {
                     }
                 </Row>
             </div>
+
+            {/* extra components */}
+            <XtraSection></XtraSection>
         </Container>
     );
 };
