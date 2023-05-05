@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
+import { FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const ChefCard = ({ data }) => {
@@ -14,7 +15,7 @@ const ChefCard = ({ data }) => {
                     <p className='my-2'><span style={{ fontWeight: 'bold' }}>Recipe:</span> {numberOfRecipes}</p>
                     <p className='m-0'><span style={{ fontWeight: 'bold' }}>Likes:</span> {likes}</p>
                     <Button variant="primary" className='w-100'>
-                        <Link className='text-light text-decoration-none' to={`/details/${id}`}>View Recipes</Link>
+                        <Link className='text-light text-decoration-none' to={`/details/${id}`}>View Recipes <FaArrowRight className='ms-3'/></Link>
                     </Button>
                 </Card.Body>
             </Card>

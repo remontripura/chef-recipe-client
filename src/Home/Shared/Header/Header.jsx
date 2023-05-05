@@ -18,9 +18,9 @@ const Header = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
-                <Navbar.Brand href="#home">
+                <Link to="/">
                     <img style={{ width: '50px' }} src="https://i.ibb.co/7RbjRGL/logo.png" alt="" />
-                </Navbar.Brand>
+                </Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto">
