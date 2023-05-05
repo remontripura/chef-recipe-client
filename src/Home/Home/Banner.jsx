@@ -1,11 +1,12 @@
 import React from 'react';
 import chef from '../../assets/chef.jpg'
 import { Card, CardGroup } from 'react-bootstrap';
+import LazyLoad from 'react-lazy-load';
 
 const Banner = () => {
     return (
         <CardGroup className='gap-5 my-5 align-items-center'>
-            <Card  className='border-0'>
+            <Card className='border-0'>
                 <Card.Body>
                     <Card.Title>Hi i am Alex</Card.Title>
                     <Card.Text>
@@ -16,7 +17,11 @@ const Banner = () => {
                 </Card.Body>
             </Card>
             <Card>
-                <Card.Img variant="top" src={chef} />
+                <LazyLoad>
+                    <LazyLoad>
+                        <Card.Img variant="top" src={chef} />
+                    </LazyLoad>
+                </LazyLoad>
             </Card>
         </CardGroup>
     );

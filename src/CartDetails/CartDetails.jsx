@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import { FaRegHeart, FaStar, FaStarHalf } from 'react-icons/fa';
+import LazyLoad from 'react-lazy-load';
 
 
 const CartDetails = () => {
@@ -16,7 +17,9 @@ const CartDetails = () => {
     return (
         <div>
             <Card className='w-50 sm={w-100} mx-auto'>
-                <Card.Img variant="top" src={chefImage} />
+                <LazyLoad>
+                    <Card.Img variant="top" src={chefImage} />
+                </LazyLoad>
                 <Card.Body>
                     <Card.Title>Chef Name: {chefName}</Card.Title>
                     <Card.Text>
@@ -39,12 +42,12 @@ const CartDetails = () => {
                                         <p><span style={{ fontWeight: 'bold' }}>Ingredients: </span>{r.ingredients}</p>
                                         <p><span style={{ fontWeight: 'bold' }}>Cooking Method:</span>{r.cooking_method}</p>
                                         <span className='d-flex align-items-center'>
-                                            <FaStar className='text-warning'/>
+                                            <FaStar className='text-warning' />
                                             <FaStar className='text-warning' />
                                             <FaStar className='text-warning' />
                                             <FaStar className='text-warning' />
                                             <FaStarHalf className='text-warning' />
-                                        {r?.ratings}</span>
+                                            {r?.ratings}</span>
                                         <button disabled={disabled} onClick={onClick} className='btn btn-primary position-absolute bottom-0 start-0 w-100'>Fabourite Recipe <FaRegHeart /></button>
                                     </Card.Body>
                                 </Card>

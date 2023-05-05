@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
+import LazyLoad from 'react-lazy-load';
 
 const Header = () => {
 
@@ -19,7 +20,7 @@ const Header = () => {
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
                 <Link to="/">
-                    <img style={{ width: '50px' }} src="https://i.ibb.co/7RbjRGL/logo.png" alt="" />
+                <img style={{ width: '50px' }} src="https://i.ibb.co/7RbjRGL/logo.png" alt="" />
                 </Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
