@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
-import LazyLoad from 'react-lazy-load';
 
 const Header = () => {
 
@@ -31,12 +30,15 @@ const Header = () => {
                         <Link className='text-decoration-none text-dark font-weight-normal me-5' to='/contact'>Contact</Link>
                     </Nav>
                     <Nav>
+                        {/* User Image */}
                         <div className='me-4'>
                             {
                                 user &&
                                 <img className='rounded-circle' style={{ width: '40px' }} src={user?.photoURL} alt="" />
                             }
                         </div>
+
+                        {/* Login Logout Toggle Button */}
                         {
                             user ?
                                 <button onClick={handleLogOut} className='btn btn-primary '>

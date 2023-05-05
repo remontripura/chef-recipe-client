@@ -5,6 +5,8 @@ const XtraSection = () => {
     return (
         <div>
             <h3 className='text-danger text-center'>Chiken Pasta</h3>
+
+            {/* First Extra Section */}
             <div className='my-5 bg-secondary bg-opacity-25'>
                 <CardGroup className='gap-5 my-5 align-items-center'>
                     <Card className='border-0 text-center'>
@@ -20,6 +22,7 @@ const XtraSection = () => {
                 </CardGroup>
             </div>
 
+            {/* Second Extra Section */}
             <div className='my-5 bg-dark w-100 text-center' style={{ padding: '30px' }}>
                 <h3 className='text-center text-light'>Bangladeshi Chef</h3>
                 <p className='text-light' style={{ fontSize: '20px' }}>

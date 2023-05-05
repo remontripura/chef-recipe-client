@@ -16,6 +16,8 @@ const CartDetails = () => {
 
     return (
         <div>
+
+            {/* Chef Details */}
             <Card className='w-50 sm={w-100} mx-auto'>
                 <LazyLoad>
                     <Card.Img variant="top" src={chefImage} />
@@ -30,6 +32,8 @@ const CartDetails = () => {
                     </Card.Text>
                 </Card.Body>
             </Card>
+
+            {/* Recipe Details Section */}
             <div className='mt-5'>
                 <h2 className='text-danger text-center my-5 border-bottom'>{chefName} Recipe</h2>
                 <Row xs={1} md={3} lg={3} className="g-4">
